@@ -12,8 +12,18 @@ const (
 	// FieldName holds the string denoting the name field in the database.
 	FieldName = "name"
 
+	// EdgeCars holds the string denoting the cars edge name in mutations.
+	EdgeCars = "cars"
+
 	// Table holds the table name of the user in the database.
 	Table = "users"
+	// CarsTable is the table the holds the cars relation/edge.
+	CarsTable = "cars"
+	// CarsInverseTable is the table name for the Car entity.
+	// It exists in this package in order to avoid circular dependency with the "car" package.
+	CarsInverseTable = "cars"
+	// CarsColumn is the table column denoting the cars relation/edge.
+	CarsColumn = "user_cars"
 )
 
 // Columns holds all SQL columns for user fields.
