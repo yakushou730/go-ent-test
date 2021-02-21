@@ -4,6 +4,7 @@ import (
 	"entgo.io/ent"
 	"entgo.io/ent/schema/edge"
 	"entgo.io/ent/schema/field"
+	"entgo.io/ent/schema/index"
 )
 
 // User holds the schema definition for the User entity.
@@ -29,5 +30,12 @@ func (User) Edges() []ent.Edge {
 		// explicitly using the `Ref` method.
 		edge.From("groups", Group.Type).
 			Ref("users"),
+	}
+}
+
+func (User) Index() []ent.Index {
+	return []ent.Index{
+		index.Fields("age", "name").
+			Unique(),
 	}
 }
